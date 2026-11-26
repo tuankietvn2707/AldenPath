@@ -1,0 +1,639 @@
+{
+  "lessonTemplates": [],
+  "activityBank": [
+    {
+      "id": "bank_1",
+      "title": "2 sự thật 1 lời nói dối (Khởi động phản xạ)",
+      "titleEn": "Two Truths and a Lie",
+      "stage": "Warm-up",
+      "skill": "Speaking",
+      "level": "A2 – B2",
+      "durationMinutes": 10,
+      "objective": "Kích hoạt ngữ pháp mục tiêu (quá khứ/hiện tại hoàn thành) và tạo không khí cởi mở.",
+      "teacherInstructions": "Yêu cầu học viên nghĩ 3 câu theo thì đang học (2 thật, 1 giả). Giáo viên hỏi xoáy 2 câu để tìm ra câu giả.",
+      "studentTask": "Nói 3 câu ngắn và trả lời câu hỏi chất vấn bằng tiếng Anh.",
+      "guidingQuestions": "When exactly did that happen? Who was with you?",
+      "answerKey": "Linh hoạt theo ngữ cảnh học viên.",
+      "tags": [
+        "warm-up",
+        "speaking",
+        "ice-breaker",
+        "1-on-1",
+        "group"
+      ],
+      "createdAt": "2026-11-24T09:00:00.000Z",
+      "updatedAt": "2026-11-24T09:00:00.000Z",
+      "isSampleData": true
+    },
+    {
+      "id": "bank_2",
+      "title": "Sửa lỗi ẩn danh cuối buổi (Error Auction)",
+      "titleEn": "Delayed Error Correction",
+      "stage": "Review",
+      "skill": "Grammar",
+      "level": "A2 – C1",
+      "durationMinutes": 8,
+      "objective": "Giúp học viên tự nhận diện lỗi ngữ pháp & cách diễn đạt của chính mình.",
+      "teacherInstructions": "Chọn 4 câu (3 câu có lỗi học viên vừa nói, 1 câu rất hay) hiển thị lên màn hình không nêu tên.",
+      "studentTask": "Tìm câu đúng và tự sửa 3 câu còn lại.",
+      "guidingQuestions": "Which sentence sounds completely natural? What is missing in sentence #2?",
+      "answerKey": "Tùy ghi chép thực tế trong buổi dạy.",
+      "tags": [
+        "review",
+        "feedback",
+        "grammar",
+        "error-correction"
+      ],
+      "createdAt": "2026-11-24T09:00:00.000Z",
+      "updatedAt": "2026-11-24T09:00:00.000Z",
+      "isSampleData": true
+    },
+    {
+      "id": "bank_3",
+      "title": "Trả lời 30 giây không ngập ngừng (30-Second Sprint)",
+      "titleEn": "30-Second Fluency Sprint",
+      "stage": "Practice",
+      "skill": "Speaking",
+      "level": "B1 – B2",
+      "durationMinutes": 12,
+      "objective": "Tăng độ trôi chảy (fluency) và giảm thói quen dịch từng từ.",
+      "teacherInstructions": "Đưa 1 chủ đề gần gũi, bấm giờ 30 giây nói liên tục. Sau đó góp ý 2 từ nối và cho nói lại 45 giây.",
+      "studentTask": "Nói liên tục không dừng quá 2 giây; áp dụng 2 từ nối vừa được gợi ý ở lượt 2.",
+      "guidingQuestions": "What filler phrase can you use when you need 2 seconds to think?",
+      "answerKey": "Gợi ý: That’s an interesting question; Let me think for a second; Actually...",
+      "tags": [
+        "ielts",
+        "fluency",
+        "speaking",
+        "timed"
+      ],
+      "createdAt": "2026-11-24T09:00:00.000Z",
+      "updatedAt": "2026-11-24T09:00:00.000Z",
+      "isSampleData": true
+    },
+    {
+      "id": "bank_4",
+      "title": "Nghe chép từ khóa & Tóm tắt 3 ý",
+      "titleEn": "Keyword Listening & 3-Point Summary",
+      "stage": "Practice",
+      "skill": "Listening",
+      "level": "A2 – B2",
+      "durationMinutes": 15,
+      "objective": "Rèn kỹ năng bắt từ khóa thay vì cố nghe từng từ đơn lẻ.",
+      "teacherInstructions": "Phát đoạn nghe 60–90 giây 2 lần. Lần 1 chỉ ghi tối đa 8 từ khóa; lần 2 đối chiếu và tóm tắt bằng lời.",
+      "studentTask": "Ghi từ khóa và kể lại nội dung đoạn nghe bằng 3 câu của mình.",
+      "guidingQuestions": "What was the main problem mentioned? How was it solved?",
+      "answerKey": "Kiểm tra đủ 3 ý cốt lõi của đoạn audio.",
+      "tags": [
+        "listening",
+        "note-taking",
+        "summary"
+      ],
+      "createdAt": "2026-11-24T09:00:00.000Z",
+      "updatedAt": "2026-11-24T09:00:00.000Z",
+      "isSampleData": true
+    }
+  ],
+  "materials": [
+    {
+      "id": "mat_ef_u3a_slides",
+      "title": "Slide bài giảng Unit 3A — Airport & Future Plans",
+      "type": "link",
+      "category": "slides",
+      "url": "https://docs.google.com/presentation/d/sample-alden-unit3a",
+      "textReadable": false,
+      "readabilityNote": "Đường dẫn ngoài (Google Slides) — hệ thống lưu liên kết, không tự động đọc nội dung bên trong.",
+      "linkedLessonIds": [],
+      "notes": "Gồm 14 slide hình ảnh sân bay và bảng so sánh thì.",
+      "createdAt": "2026-11-10T08:15:00.000Z",
+      "isSampleData": true
+    },
+    {
+      "id": "mat_ef_u3a_audio",
+      "title": "Audio 3.2 — Business Trip Itinerary (MP3)",
+      "type": "link",
+      "category": "audio",
+      "url": "https://drive.google.com/file/d/sample-alden-audio32",
+      "textReadable": false,
+      "readabilityNote": "Đường dẫn tệp âm thanh — chỉ lưu liên kết, chưa tự động chép lời (transcribe).",
+      "linkedLessonIds": [],
+      "notes": "Thời lượng 1 phút 45 giây, tốc độ chuẩn B1.",
+      "createdAt": "2026-11-10T08:20:00.000Z",
+      "isSampleData": true
+    },
+    {
+      "id": "mat_past_simple_ws",
+      "title": "Phiếu bài tập & Đáp án: 15 Irregular Verbs + -ed Drill",
+      "type": "link",
+      "category": "worksheet",
+      "url": "https://docs.google.com/document/d/sample-alden-past-simple-ws",
+      "textReadable": false,
+      "readabilityNote": "Đường dẫn tài liệu ngoài — hệ thống chỉ lưu liên kết để mở nhanh khi dạy.",
+      "linkedLessonIds": [],
+      "notes": "Có kèm trang đáp án riêng cho giáo viên.",
+      "createdAt": "2026-11-12T09:00:00.000Z",
+      "isSampleData": true
+    },
+    {
+      "id": "mat_ielts_sp1_notes",
+      "title": "Bộ câu hỏi mẫu IELTS Speaking Part 1 (Work & Routine).txt",
+      "type": "file",
+      "category": "reading",
+      "fileName": "ielts_sp1_work_routine_sample.txt",
+      "mimeType": "text/plain",
+      "fileSize": 640,
+      "textReadable": true,
+      "readabilityNote": "Tệp văn bản thuần (.txt) — hỗ trợ xem trước và gửi trích đoạn khi nhờ AI hỗ trợ.",
+      "extractedTextPreview": "Q1: Do you work or are you a student?\nQ2: What do you like most about your daily routine?\nQ3: Is there anything you would like to change about your schedule?\nCollocations: hectic schedule, stick to a routine, unwind after work.",
+      "linkedLessonIds": [],
+      "notes": "Tài liệu mẫu minh họa khả năng đọc tệp văn bản.",
+      "createdAt": "2026-11-15T10:00:00.000Z",
+      "isSampleData": true
+    }
+  ],
+  "curriculumTemplates": [
+    {
+      "id": "cur_comm_a2b1",
+      "title": "Lộ trình Giao tiếp Công việc & Đời sống (A2 → B1)",
+      "titleEn": "Practical English Communication Pathway (A2 to B1)",
+      "description": "Lộ trình 16 buổi giúp học viên đi làm xây dựng phản xạ nói mạch lạc về công việc, kế hoạch, kể chuyện quá khứ và giao tiếp du lịch.",
+      "targetAudience": "Người đi làm, sinh viên năm cuối đã có nền tảng cơ bản nhưng còn ngại nói.",
+      "entryLevel": "A2 (Pre-Intermediate)",
+      "exitGoal": "Tự tin trao đổi tình huống công việc hàng ngày, kể chuyện rõ thì và lên lịch hẹn tự nhiên.",
+      "estimatedSessions": 16,
+      "estimatedHours": 16,
+      "keyMaterialsSummary": "Giáo trình English File Pre-Intermediate chọn lọc + Phiếu bài tập giao tiếp thực tế của Alden.",
+      "keyActivitiesSummary": "Role-play theo tình huống công việc, sửa lỗi cuối buổi (Delayed Error Correction), ghi âm luyện nói hàng tuần.",
+      "stages": [
+        {
+          "id": "stg_c1_1",
+          "title": "Giai đoạn 1: Kể chuyện & Nền tảng phản xạ",
+          "titleEn": "Stage 1: Storytelling & Core Fluency",
+          "description": "Củng cố cách kể sự kiện quá khứ, phát âm đuôi -ed và cấu trúc câu mạch lạc.",
+          "items": [
+            {
+              "id": "ci_c1_1",
+              "customTitle": "Thì Quá khứ đơn qua kể chuyện (Past Simple Storytelling)",
+              "topic": "Past Simple & Pronunciation",
+              "estimatedSessions": 2,
+              "keyMaterialsNote": "Phiếu 15 động từ bất quy tắc + bài tập phân loại -ed",
+              "keyActivitiesNote": "Two Truths & a Lie, Kể chuyện 4 bước",
+              "notes": "Dành 2 buổi nếu học viên hay quên chia động từ khi nói nhanh."
+            }
+          ]
+        },
+        {
+          "id": "stg_c1_2",
+          "title": "Giai đoạn 2: Kế hoạch, Lịch hẹn & Tình huống thực tế",
+          "titleEn": "Stage 2: Plans, Schedules & Everyday Scenarios",
+          "description": "Giao tiếp lịch làm việc, du lịch công tác và mua sắm.",
+          "items": [
+            {
+              "id": "ci_c1_2",
+              "customTitle": "Unit 3A: Kế hoạch & Hẹn lịch (Going to & Present Continuous)",
+              "topic": "Travel & Future Plans",
+              "estimatedSessions": 2,
+              "keyMaterialsNote": "Slide Unit 3A + Audio 3.2",
+              "keyActivitiesNote": "Listening Itinerary + Role-play Next Week Planner"
+            },
+            {
+              "id": "ci_c1_3",
+              "customTitle": "Unit 4B: Trải nghiệm mua sắm (Present Perfect vs. Past Simple)",
+              "topic": "Shopping & Experiences",
+              "estimatedSessions": 2,
+              "keyMaterialsNote": "Bộ tình huống đổi trả hàng",
+              "keyActivitiesNote": "Role-play Customer Service"
+            }
+          ]
+        }
+      ],
+      "version": 1,
+      "createdAt": "2026-11-08T08:00:00.000Z",
+      "updatedAt": "2026-11-20T09:00:00.000Z",
+      "isSampleData": true
+    },
+    {
+      "id": "cur_ielts_speaking",
+      "title": "Lộ trình Nâng band IELTS Speaking (5.5 → 6.5+)",
+      "titleEn": "IELTS Speaking Accelerator (5.5 to 6.5+)",
+      "description": "Tập trung mở rộng câu trả lời tự nhiên ở Part 1, cấu trúc bài nói 2 phút Part 2 và phát triển lập luận Part 3.",
+      "targetAudience": "Học viên chuẩn bị thi IELTS trong 2–3 tháng, cần cải thiện Fluency và Vocabulary.",
+      "entryLevel": "B1 (Band ~5.5)",
+      "exitGoal": "Đạt Band 6.5+ Speaking với phản xạ tự nhiên, không học tủ.",
+      "estimatedSessions": 12,
+      "estimatedHours": 15,
+      "keyMaterialsSummary": "Bộ câu hỏi dự đoán cập nhật + Checklist tiêu chí chấm điểm 4 kỹ năng con.",
+      "keyActivitiesSummary": "30-Second Fluency Sprint, Mock Interview có bấm giờ và chấm nhận xét chi tiết.",
+      "stages": [
+        {
+          "id": "stg_c2_1",
+          "title": "Giai đoạn 1: Làm chủ Part 1 tự nhiên",
+          "titleEn": "Stage 1: Natural Part 1 Responses",
+          "description": "Xây dựng độ dài câu trả lời chuẩn và vốn collocations đời sống.",
+          "items": [
+            {
+              "id": "ci_c2_1",
+              "customTitle": "IELTS Speaking Part 1: Work & Daily Routine",
+              "topic": "IELTS Speaking Part 1",
+              "estimatedSessions": 2,
+              "keyMaterialsNote": "Bộ câu hỏi Work & Routine + bảng P-R-E",
+              "keyActivitiesNote": "Diagnostic Interview + 4-Minute Mock"
+            }
+          ]
+        }
+      ],
+      "version": 1,
+      "createdAt": "2026-11-14T08:00:00.000Z",
+      "updatedAt": "2026-11-22T15:00:00.000Z",
+      "isSampleData": true
+    }
+  ],
+  "studentRoadmaps": [
+    {
+      "id": "rm_minh_anh",
+      "learnerId": "tf_stu_001",
+      "learnerType": "student",
+      "learnerNameSnapshot": "Nguyễn Minh Anh",
+      "sourceTemplateId": "cur_comm_a2b1",
+      "sourceTemplateTitleSnapshot": "Lộ trình Giao tiếp Công việc & Đời sống (A2 → B1)",
+      "sourceTemplateVersionSnapshot": 1,
+      "title": "Lộ trình Giao tiếp Công việc — Nguyễn Minh Anh",
+      "customGoals": "Tập trung tự tin giao tiếp trong các cuộc họp dự án ngắn và chuyến công tác Singapore tháng tới.",
+      "entryLevel": "A2 (Pre-Intermediate)",
+      "targetGoal": "Giao tiếp mạch lạc về lịch trình, báo cáo tiến độ và kể lại sự việc đã xảy ra.",
+      "estimatedSessions": 16,
+      "teacherNotes": "Minh Anh tiếp thu ngữ pháp tốt nhưng hay ngập ngừng khi chuyển sang nói tự do; cần ưu tiên thời lượng Role-play.",
+      "stages": [
+        {
+          "id": "rm_ma_stg1",
+          "title": "Giai đoạn 1: Kể chuyện & Nền tảng phản xạ",
+          "titleEn": "Stage 1: Storytelling & Core Fluency",
+          "items": [
+            {
+              "id": "rm_ma_item1",
+              "sourceItemId": "ci_c1_1",
+              "customTitle": "Thì Quá khứ đơn qua kể chuyện (tập trung đuôi -ed)",
+              "topic": "Past Simple & Pronunciation",
+              "estimatedSessions": 2,
+              "status": "needs_review",
+              "personalNotes": "Buổi trước chưa kịp hoàn thành phần Kể chuyện tự do; cần ôn nhanh 10 phút đuôi /t/ và /d/.",
+              "lastTaughtSessionId": "tf_ses_201",
+              "isCustomized": true
+            }
+          ]
+        },
+        {
+          "id": "rm_ma_stg2",
+          "title": "Giai đoạn 2: Kế hoạch, Lịch hẹn & Tình huống công tác",
+          "titleEn": "Stage 2: Plans & Business Trips",
+          "items": [
+            {
+              "id": "rm_ma_item2",
+              "sourceItemId": "ci_c1_2",
+              "customTitle": "Unit 3A: Kế hoạch & Hẹn lịch (Going to & Present Continuous)",
+              "topic": "Travel & Future Plans",
+              "estimatedSessions": 2,
+              "status": "in_progress",
+              "personalNotes": "Lồng ghép kịch bản công tác Singapore của học viên.",
+              "isCustomized": true
+            },
+            {
+              "id": "rm_ma_item3",
+              "sourceItemId": "ci_c1_3",
+              "customTitle": "Unit 4B: Trải nghiệm mua sắm & Giao tiếp dịch vụ",
+              "topic": "Shopping",
+              "estimatedSessions": 2,
+              "status": "not_started",
+              "personalNotes": "",
+              "isCustomized": false
+            }
+          ]
+        }
+      ],
+      "createdAt": "2026-11-11T09:00:00.000Z",
+      "updatedAt": "2026-11-26T06:26:52.735Z",
+      "isSampleData": false
+    },
+    {
+      "id": "rm_grp_ielts",
+      "learnerId": "tf_grp_001",
+      "learnerType": "group",
+      "learnerNameSnapshot": "Nhóm IELTS Speaking Tối T4–T6",
+      "sourceTemplateId": "cur_ielts_speaking",
+      "sourceTemplateTitleSnapshot": "Lộ trình Nâng band IELTS Speaking (5.5 → 6.5+)",
+      "sourceTemplateVersionSnapshot": 1,
+      "title": "Lộ trình IELTS Speaking — Nhóm T4–T6 (3 học viên)",
+      "customGoals": "Cả 3 bạn đạt tối thiểu 6.5 Speaking; tăng tương tác nhận xét chéo trong lớp nhóm.",
+      "entryLevel": "B1 (5.5)",
+      "targetGoal": "Band 6.5+ trước kỳ thi tháng 1.",
+      "estimatedSessions": 12,
+      "teacherNotes": "Nhóm gồm Lan, Huy và Thảo. Huy nói nhanh nhưng hay lỗi thì; Thảo ý tưởng tốt nhưng cần thêm collocations.",
+      "stages": [
+        {
+          "id": "rm_grp_stg1",
+          "title": "Giai đoạn 1: Làm chủ Part 1 tự nhiên",
+          "items": [
+            {
+              "id": "rm_grp_item1",
+              "sourceItemId": "ci_c2_1",
+              "customTitle": "IELTS Speaking Part 1: Work & Daily Routine",
+              "topic": "IELTS Speaking Part 1",
+              "estimatedSessions": 2,
+              "status": "in_progress",
+              "personalNotes": "Đã học kỹ thuật P-R-E; buổi sau thi thử 4 phút cho từng bạn.",
+              "lastTaughtSessionId": "tf_ses_202",
+              "isCustomized": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2026-11-15T10:00:00.000Z",
+      "updatedAt": "2026-11-22T20:00:00.000Z",
+      "isSampleData": true
+    }
+  ],
+  "sessionPlans": [
+    {
+      "id": "sp_ses_101",
+      "tutorFlowSessionId": "tf_ses_101",
+      "learnerId": "tf_stu_001",
+      "roadmapId": "rm_minh_anh",
+      "roadmapItemId": "rm_ma_item2",
+      "title": "Ôn nhanh Past Simple + Unit 3A: Kế hoạch công tác (Going to vs. Present Continuous)",
+      "objectives": "Hoàn thiện phần kể chuyện quá khứ còn dở buổi trước (10 phút) và vận dụng thành thạo Present Continuous cho lịch công tác sắp tới.",
+      "preparationNotes": "Chuẩn bị thêm 3 câu ôn đuôi -ed từ lỗi buổi trước + file nghe 3.2.",
+      "materialIds": [
+        "mat_ef_u3a_slides",
+        "mat_ef_u3a_audio"
+      ],
+      "activities": [
+        {
+          "id": "sact_101_0",
+          "title": "Ôn tập nối tiếp buổi trước: 3 câu kể chuyện & phát âm -ed",
+          "stage": "Review",
+          "durationMinutes": 10,
+          "objective": "Củng cố 3 động từ Minh Anh hay nhầm ở buổi trước (worked, decided, traveled).",
+          "teacherInstructions": "Cho học viên kể lại nhanh 1 phút sự kiện cuối tuần, chú ý đuôi -ed.",
+          "studentTask": "Kể 1 phút và tự sửa nếu đọc dư âm /ɪd/.",
+          "guidingQuestions": "What did you decide to do last weekend?",
+          "answerKey": "worked /t/, traveled /d/, decided /ɪd/."
+        },
+        {
+          "id": "sact_101_1",
+          "title": "Ngữ pháp: Going to vs. Present Continuous (Lịch công tác)",
+          "stage": "Presentation",
+          "durationMinutes": 15,
+          "objective": "Phân biệt kế hoạch cá nhân và lịch họp đã đặt.",
+          "teacherInstructions": "Dùng chính ví dụ chuyến công tác Singapore của Minh Anh để minh họa.",
+          "studentTask": "Phân loại 6 câu mẫu và đặt 2 câu từ lịch thật của mình.",
+          "guidingQuestions": "Which meeting is already confirmed on your calendar?",
+          "answerKey": "Confirmed time/place → Present Continuous."
+        },
+        {
+          "id": "sact_101_2",
+          "title": "Nghe 3.2: Lịch trình chuyến công tác",
+          "stage": "Practice",
+          "durationMinutes": 15,
+          "objective": "Nghe bắt giờ bay và lịch gặp đối tác.",
+          "teacherInstructions": "Nghe 2 lượt, kiểm tra từng mốc giờ.",
+          "studentTask": "Điền 5 mốc giờ còn thiếu.",
+          "guidingQuestions": "What time is the client presentation?",
+          "answerKey": "15:30."
+        },
+        {
+          "id": "sact_101_3",
+          "title": "Đóng vai: Báo cáo lịch tuần tới với quản lý",
+          "stage": "Production",
+          "durationMinutes": 20,
+          "objective": "Nói trôi chảy 2 phút về kế hoạch tuần tới.",
+          "teacherInstructions": "Đóng vai quản lý hỏi thêm 3 câu phát sinh.",
+          "studentTask": "Trình bày lịch hẹn tuần tới và trả lời câu hỏi.",
+          "guidingQuestions": "Who are you meeting on Thursday morning?",
+          "answerKey": "N/A"
+        }
+      ],
+      "homeworkPlan": "Viết email ngắn (80 từ) xác nhận lịch họp tuần sau.",
+      "teacherNotes": "Bản kế hoạch riêng đã rút gọn phần khởi động sân bay để dành 10 phút ôn bài cũ.",
+      "createdAt": "2026-11-24T08:00:00.000Z",
+      "updatedAt": "2026-11-24T08:30:00.000Z",
+      "isSampleData": true
+    },
+    {
+      "id": "sp_ses_201",
+      "tutorFlowSessionId": "tf_ses_201",
+      "learnerId": "tf_stu_001",
+      "roadmapId": "rm_minh_anh",
+      "roadmapItemId": "rm_ma_item1",
+      "title": "Thì Quá khứ đơn qua kể chuyện (Past Simple Storytelling)",
+      "objectives": "Kể lại kỷ niệm đáng nhớ bằng thì quá khứ đơn và phát âm đúng đuôi -ed.",
+      "preparationNotes": "Bảng 15 động từ bất quy tắc.",
+      "materialIds": [
+        "mat_past_simple_ws"
+      ],
+      "activities": [
+        {
+          "id": "sact_201_1",
+          "title": "Khởi động nhanh: 2 sự thật 1 lời nói dối",
+          "stage": "Warm-up",
+          "durationMinutes": 10,
+          "objective": "Khởi động phản xạ quá khứ.",
+          "teacherInstructions": "Làm mẫu 3 câu.",
+          "studentTask": "Nói 3 câu về cuối tuần.",
+          "guidingQuestions": "Did you go anywhere special?",
+          "answerKey": "N/A"
+        },
+        {
+          "id": "sact_201_2",
+          "title": "Luyện phát âm đuôi -ed qua phân loại nhanh",
+          "stage": "Presentation",
+          "durationMinutes": 15,
+          "objective": "Phân biệt /t/, /d/, /ɪd/.",
+          "teacherInstructions": "Hướng dẫn phân loại 12 từ.",
+          "studentTask": "Đọc mẫu từng nhóm.",
+          "guidingQuestions": "Which sounds trigger /ɪd/?",
+          "answerKey": "/t/ and /d/ endings."
+        },
+        {
+          "id": "sact_201_3",
+          "title": "Xây dựng câu chuyện theo khung 4 bước",
+          "stage": "Practice",
+          "durationMinutes": 15,
+          "objective": "Lập dàn ý 4 bước.",
+          "teacherInstructions": "Hỗ trợ từ vựng chuyển ý.",
+          "studentTask": "Viết 4 gạch đầu dòng.",
+          "guidingQuestions": "What happened next?",
+          "answerKey": "N/A"
+        },
+        {
+          "id": "sact_201_4",
+          "title": "Kể chuyện tự do & Hỏi đáp phản xạ",
+          "stage": "Production",
+          "durationMinutes": 20,
+          "objective": "Kể liền mạch 90 giây.",
+          "teacherInstructions": "Ghi chú lỗi phát âm.",
+          "studentTask": "Kể chuyện 2 lượt.",
+          "guidingQuestions": "How did you feel at the end?",
+          "answerKey": "N/A"
+        }
+      ],
+      "homeworkPlan": "Hoàn thành phiếu 15 câu động từ bất quy tắc + ghi âm 90 giây.",
+      "teacherNotes": "",
+      "createdAt": "2026-11-20T10:00:00.000Z",
+      "updatedAt": "2026-11-21T14:00:00.000Z",
+      "isSampleData": true
+    },
+    {
+      "id": "sp_ses_202",
+      "tutorFlowSessionId": "tf_ses_202",
+      "learnerId": "tf_grp_001",
+      "roadmapId": "rm_grp_ielts",
+      "roadmapItemId": "rm_grp_item1",
+      "title": "IELTS Speaking Part 1: Work & Daily Routine",
+      "objectives": "Áp dụng công thức P-R-E cho cả 3 bạn trong nhóm.",
+      "preparationNotes": "Chuẩn bị đồng hồ bấm giờ 25 giây.",
+      "materialIds": [
+        "mat_ielts_sp1_notes"
+      ],
+      "activities": [
+        {
+          "id": "sact_202_1",
+          "title": "Chẩn đoán nhanh: 4 câu hỏi không chuẩn bị",
+          "stage": "Warm-up",
+          "durationMinutes": 15,
+          "objective": "Kiểm tra phản xạ đầu giờ của 3 học viên.",
+          "teacherInstructions": "Hỏi xoay vòng từng bạn.",
+          "studentTask": "Trả lời tự nhiên.",
+          "guidingQuestions": "Do you enjoy your daily routine?",
+          "answerKey": "N/A"
+        },
+        {
+          "id": "sact_202_2",
+          "title": "Kỹ thuật P-R-E & Cụm từ ăn điểm",
+          "stage": "Presentation",
+          "durationMinutes": 20,
+          "objective": "Nắm công thức mở rộng câu trả lời.",
+          "teacherInstructions": "Phân tích mẫu Band 5.0 vs 6.5+.",
+          "studentTask": "Thực hành nâng cấp câu trả lời.",
+          "guidingQuestions": "How do you extend without memorizing?",
+          "answerKey": "Point + Reason + Example."
+        },
+        {
+          "id": "sact_202_3",
+          "title": "Thi thử 4 phút & Nhận xét chéo",
+          "stage": "Production",
+          "durationMinutes": 40,
+          "objective": "Mô phỏng phòng thi thật.",
+          "teacherInstructions": "Bấm giờ và chấm nhận xét.",
+          "studentTask": "Trả lời và ghi chú 1 điểm tốt của bạn cùng nhóm.",
+          "guidingQuestions": "Which collocation sounded best?",
+          "answerKey": "N/A"
+        }
+      ],
+      "homeworkPlan": "Thu âm 6 câu hỏi Part 1 chủ đề Hometown & Routine.",
+      "teacherNotes": "Buổi dạy nhóm cần căn giờ chặt để cả 3 bạn đều có đủ lượt nói.",
+      "createdAt": "2026-11-21T08:00:00.000Z",
+      "updatedAt": "2026-11-22T21:00:00.000Z",
+      "isSampleData": true
+    }
+  ],
+  "postSessionLogs": [
+    {
+      "id": "log_ses_201",
+      "tutorFlowSessionId": "tf_ses_201",
+      "sessionPlanId": "sp_ses_201",
+      "learnerId": "tf_stu_001",
+      "activityOutcomes": [
+        {
+          "activityId": "sact_201_1",
+          "activityTitle": "Khởi động nhanh: 2 sự thật 1 lời nói dối",
+          "status": "completed",
+          "actualMinutes": 12,
+          "note": "Học viên hào hứng, phản xạ khá tốt."
+        },
+        {
+          "activityId": "sact_201_2",
+          "activityTitle": "Luyện phát âm đuôi -ed qua phân loại nhanh",
+          "status": "completed",
+          "actualMinutes": 20,
+          "note": "Mất thêm 5 phút để chỉnh lỗi đọc dư /ɪd/ ở worked, watched."
+        },
+        {
+          "activityId": "sact_201_3",
+          "activityTitle": "Xây dựng câu chuyện theo khung 4 bước",
+          "status": "partial",
+          "actualMinutes": 18,
+          "note": "Mới lập xong dàn ý 4 bước và thử kể lượt 1 ngắn."
+        },
+        {
+          "activityId": "sact_201_4",
+          "activityTitle": "Kể chuyện tự do & Hỏi đáp phản xạ",
+          "status": "not_done",
+          "actualMinutes": 0,
+          "note": "Hết giờ, cần chuyển sang 10–15 phút đầu buổi kế tiếp."
+        }
+      ],
+      "taughtSummary": "Hoàn thành phần khởi động và luyện phát âm -ed rất kỹ. Học viên đã lập xong dàn ý câu chuyện chuyến đi Đà Lạt nhưng chưa kịp kể hoàn chỉnh lượt 2.",
+      "actualDurationMinutes": 60,
+      "missingContent": "Chưa thực hiện hoạt động Kể chuyện tự do & Hỏi đáp phản xạ (lượt 2).",
+      "comprehensionLevel": "moderate",
+      "strengths": "Ý tưởng phong phú, nhớ từ vựng mô tả tốt, chủ động đặt câu hỏi.",
+      "weaknesses": "Khi nói nhanh vẫn quên chuyển động từ bất quy tắc (go → went, buy → bought) và hay đọc /ɪd/ cho worked/watched.",
+      "commonErrors": "\"Yesterday I go to...\" thay vì \"went\"; đọc \"work-ed\" thành 2 âm tiết.",
+      "homeworkAssigned": "Hoàn thành phiếu 15 động từ bất quy tắc và gửi file ghi âm kể câu chuyện Đà Lạt (90 giây).",
+      "homeworkResult": "Đã nộp phiếu bài tập (đúng 13/15 câu), chưa gửi file ghi âm.",
+      "freeformNotes": "Buổi sau nhớ dành 10 phút đầu cho Minh Anh kể lại câu chuyện Đà Lạt trước khi sang bài Unit 3A.",
+      "updatedAt": "2026-11-26T06:26:52.748Z",
+      "isSampleData": false
+    }
+  ],
+  "aiSuggestions": [
+    {
+      "id": "ais_sample_1",
+      "type": "next_session",
+      "title": "Đề xuất mẫu: Nối tiếp bài Past Simple & sang Unit 3A cho Minh Anh",
+      "learnerId": "tf_stu_001",
+      "sessionId": "tf_ses_101",
+      "status": "draft",
+      "modelUsed": "Dữ liệu mẫu (chưa gọi AI)",
+      "content": {
+        "reason": "Ghi nhận sau buổi 21/11 cho thấy phần Kể chuyện tự do chưa kịp thực hiện và học viên còn nhầm phát âm đuôi -ed (/t/ vs /ɪd/) khi nói nhanh.",
+        "carryOverAndReview": [
+          "Hoàn thiện lượt kể chuyện chuyến đi Đà Lạt (90 giây) từ dàn ý đã lập ở buổi trước.",
+          "Ôn nhanh 5 động từ bất quy tắc thường sai (go–went, buy–bought, take–took, see–saw, eat–ate)."
+        ],
+        "nextObjectives": [
+          "Hoàn thành mục tiêu kể chuyện quá khứ trôi chảy không đọc dư âm /ɪd/.",
+          "Bắt đầu phân biệt be going to và Present Continuous gắn với lịch công tác của học viên."
+        ],
+        "suggestedActivities": [
+          {
+            "title": "Ôn tập nối tiếp: Kể chuyện Đà Lạt 90 giây + Sửa nhanh -ed",
+            "durationMinutes": 12
+          },
+          {
+            "title": "Giới thiệu ngắn: Going to vs. Present Continuous",
+            "durationMinutes": 15
+          },
+          {
+            "title": "Nghe 3.2 & Ghi chú lịch trình",
+            "durationMinutes": 15
+          },
+          {
+            "title": "Đóng vai: Báo cáo kế hoạch tuần tới",
+            "durationMinutes": 18
+          }
+        ],
+        "prepMaterials": [
+          "Danh sách 3 câu lỗi phát âm của Minh Anh từ buổi 21/11.",
+          "Slide Unit 3A và file nghe 3.2."
+        ],
+        "missingInfoToConfirm": [
+          "Xác nhận xem học viên đã kịp gửi file ghi âm bài tập về nhà trước buổi học chưa."
+        ]
+      },
+      "createdAt": "2026-11-22T09:00:00.000Z",
+      "updatedAt": "2026-11-22T09:00:00.000Z",
+      "isSampleData": true
+    }
+  ]
+}

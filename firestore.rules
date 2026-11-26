@@ -1,0 +1,190 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model (Alden Path — Private Teacher Workspace)
+    // ===============================================================
+    // Collections (all private to Alden Path; never writes to Ken's TutorFlow):
+    // 1. /lessonTemplates/{lessonId}
+    //    - Required: id, title, status ('draft'|'published'), lessonType ('textbook'|'standalone'),
+    //      durationMinutes (number), version (int), createdAt, updatedAt
+    // 2. /activityBank/{activityId}
+    //    - Required: id, title, stage, durationMinutes, createdAt, updatedAt
+    // 3. /materials/{materialId}
+    //    - Required: id, title, type ('link'|'file'), category, textReadable (bool), createdAt
+    // 4. /curriculumTemplates/{curriculumId}
+    //    - Required: id, title, estimatedSessions, stages (list), version (int), createdAt, updatedAt
+    // 5. /studentRoadmaps/{roadmapId}
+    //    - Required: id, learnerId, learnerType ('student'|'group'), title, stages (list), createdAt, updatedAt
+    // 6. /sessionPlans/{planId}
+    //    - Required: id, tutorFlowSessionId, learnerId, title, activities (list), createdAt, updatedAt
+    // 7. /postSessionLogs/{logId}
+    //    - Required: id, tutorFlowSessionId, learnerId, activityOutcomes (list), comprehensionLevel, updatedAt
+    // 8. /aiSuggestions/{suggestionId}
+    //    - Required: id, type, title, status ('draft'|'accepted'|'dismissed'), content (map), modelUsed, createdAt, updatedAt
+    //
+    // Access Policy:
+    // - Default deny all public, anonymous, and non-owner reads/writes.
+    // - Only the verified owner account (tuankietvn2707@gmail.com) can access via client SDK;
+    //   server-side Firebase Admin SDK operates with IAM permissions on user-owned projects.
+    // ===============================================================
+
+    function isOwner() {
+      return request.auth != null
+        && request.auth.token.email == "tuankietvn2707@gmail.com"
+        && request.auth.token.email_verified == true;
+    }
+
+    function isNonEmptyString(val, maxLen) {
+      return val is string && val.size() > 0 && val.size() <= maxLen;
+    }
+
+    function isOptionalString(field, maxLen) {
+      return !(field in request.resource.data)
+        || (request.resource.data[field] is string && request.resource.data[field].size() <= maxLen);
+    }
+
+    function isValidIsoTimestamp(val) {
+      return val is string && val.size() >= 10 && val.size() <= 40;
+    }
+
+    function isValidLessonTemplate(docId) {
+      let data = request.resource.data;
+      return data.id == docId
+        && isNonEmptyString(data.title, 300)
+        && data.status in ['draft', 'published']
+        && data.lessonType in ['textbook', 'standalone']
+        && data.durationMinutes is number && data.durationMinutes >= 0 && data.durationMinutes <= 600
+        && data.version is int && data.version >= 1
+        && isValidIsoTimestamp(data.createdAt)
+        && isValidIsoTimestamp(data.updatedAt)
+        && (!('skills' in data) || (data.skills is list && data.skills.size() <= 20))
+        && (!('materialIds' in data) || (data.materialIds is list && data.materialIds.size() <= 100))
+        && (!('activities' in data) || (data.activities is list && data.activities.size() <= 100));
+    }
+
+    function isValidReusableActivity(docId) {
+      let data = request.resource.data;
+      return data.id == docId
+        && isNonEmptyString(data.title, 300)
+        && isNonEmptyString(data.stage, 80)
+        && data.durationMinutes is number && data.durationMinutes >= 0 && data.durationMinutes <= 300
+        && isValidIsoTimestamp(data.createdAt)
+        && isValidIsoTimestamp(data.updatedAt)
+        && (!('tags' in data) || (data.tags is list && data.tags.size() <= 30));
+    }
+
+    function isValidMaterialItem(docId) {
+      let data = request.resource.data;
+      return data.id == docId
+        && isNonEmptyString(data.title, 300)
+        && data.type in ['link', 'file']
+        && isNonEmptyString(data.category, 50)
+        && data.textReadable is bool
+        && isValidIsoTimestamp(data.createdAt)
+        && isOptionalString('url', 2000)
+        && (!('linkedLessonIds' in data) || (data.linkedLessonIds is list && data.linkedLessonIds.size() <= 200));
+    }
+
+    function isValidCurriculumTemplate(docId) {
+      let data = request.resource.data;
+      return data.id == docId
+        && isNonEmptyString(data.title, 300)
+        && data.estimatedSessions is number && data.estimatedSessions >= 0 && data.estimatedSessions <= 500
+        && data.stages is list && data.stages.size() <= 50
+        && data.version is int && data.version >= 1
+        && isValidIsoTimestamp(data.createdAt)
+        && isValidIsoTimestamp(data.updatedAt);
+    }
+
+    function isValidStudentRoadmap(docId) {
+      let data = request.resource.data;
+      return data.id == docId
+        && isNonEmptyString(data.learnerId, 120)
+        && data.learnerType in ['student', 'group']
+        && isNonEmptyString(data.title, 300)
+        && data.stages is list && data.stages.size() <= 50
+        && isValidIsoTimestamp(data.createdAt)
+        && isValidIsoTimestamp(data.updatedAt);
+    }
+
+    function isValidSessionPlan(docId) {
+      let data = request.resource.data;
+      return data.id == docId
+        && isNonEmptyString(data.tutorFlowSessionId, 120)
+        && isNonEmptyString(data.learnerId, 120)
+        && isNonEmptyString(data.title, 300)
+        && data.activities is list && data.activities.size() <= 100
+        && isValidIsoTimestamp(data.createdAt)
+        && isValidIsoTimestamp(data.updatedAt);
+    }
+
+    function isValidPostSessionLog(docId) {
+      let data = request.resource.data;
+      return data.id == docId
+        && isNonEmptyString(data.tutorFlowSessionId, 120)
+        && isNonEmptyString(data.learnerId, 120)
+        && data.activityOutcomes is list && data.activityOutcomes.size() <= 100
+        && data.comprehensionLevel in ['high', 'moderate', 'needs_support', 'not_rated']
+        && isValidIsoTimestamp(data.updatedAt);
+    }
+
+    function isValidAiSuggestion(docId) {
+      let data = request.resource.data;
+      return data.id == docId
+        && data.type in ['lesson_evaluation', 'curriculum_evaluation', 'next_session', 'progress_summary', 'generated_lesson']
+        && isNonEmptyString(data.title, 400)
+        && data.status in ['draft', 'accepted', 'dismissed']
+        && data.content is map
+        && isNonEmptyString(data.modelUsed, 120)
+        && isValidIsoTimestamp(data.createdAt)
+        && isValidIsoTimestamp(data.updatedAt);
+    }
+
+    match /lessonTemplates/{lessonId} {
+      allow read, delete: if isOwner();
+      allow create, update: if isOwner() && isValidLessonTemplate(lessonId);
+    }
+
+    match /activityBank/{activityId} {
+      allow read, delete: if isOwner();
+      allow create, update: if isOwner() && isValidReusableActivity(activityId);
+    }
+
+    match /materials/{materialId} {
+      allow read, delete: if isOwner();
+      allow create, update: if isOwner() && isValidMaterialItem(materialId);
+    }
+
+    match /curriculumTemplates/{curriculumId} {
+      allow read, delete: if isOwner();
+      allow create, update: if isOwner() && isValidCurriculumTemplate(curriculumId);
+    }
+
+    match /studentRoadmaps/{roadmapId} {
+      allow read, delete: if isOwner();
+      allow create, update: if isOwner() && isValidStudentRoadmap(roadmapId);
+    }
+
+    match /sessionPlans/{planId} {
+      allow read, delete: if isOwner();
+      allow create, update: if isOwner() && isValidSessionPlan(planId);
+    }
+
+    match /postSessionLogs/{logId} {
+      allow read, delete: if isOwner();
+      allow create, update: if isOwner() && isValidPostSessionLog(logId);
+    }
+
+    match /aiSuggestions/{suggestionId} {
+      allow read, delete: if isOwner();
+      allow create, update: if isOwner() && isValidAiSuggestion(suggestionId);
+    }
+
+    // Default deny for everything else
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

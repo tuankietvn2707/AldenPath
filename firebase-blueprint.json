@@ -1,0 +1,244 @@
+{
+  "entities": {
+    "LessonTemplate": {
+      "title": "LessonTemplate",
+      "description": "Master reusable lesson plan owned by Alden Path.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "titleEn": { "type": "string" },
+        "status": { "type": "string", "enum": ["draft", "published"] },
+        "lessonType": { "type": "string", "enum": ["textbook", "standalone"] },
+        "bookSeries": { "type": "string" },
+        "unit": { "type": "string" },
+        "lessonNumber": { "type": "string" },
+        "pages": { "type": "string" },
+        "topic": { "type": "string" },
+        "level": { "type": "string" },
+        "targetAudience": { "type": "string" },
+        "skills": { "type": "array", "items": { "type": "string" } },
+        "learningObjectives": { "type": "string" },
+        "keyKnowledge": { "type": "string" },
+        "durationMinutes": { "type": "number" },
+        "vocabulary": { "type": "string" },
+        "grammar": { "type": "string" },
+        "pronunciation": { "type": "string" },
+        "preparationNotes": { "type": "string" },
+        "materialIds": { "type": "array", "items": { "type": "string" } },
+        "activities": { "type": "array", "items": { "type": "object" } },
+        "homework": { "type": "string" },
+        "assessmentMethod": { "type": "string" },
+        "additionalNotes": { "type": "string" },
+        "version": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "isSampleData": { "type": "boolean" }
+      },
+      "required": ["id", "title", "status", "lessonType", "durationMinutes", "version", "createdAt", "updatedAt"]
+    },
+    "ReusableActivity": {
+      "title": "ReusableActivity",
+      "description": "Reusable teaching activity stored in the Alden Path Activity Bank.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "titleEn": { "type": "string" },
+        "stage": { "type": "string" },
+        "skill": { "type": "string" },
+        "level": { "type": "string" },
+        "durationMinutes": { "type": "number" },
+        "objective": { "type": "string" },
+        "teacherInstructions": { "type": "string" },
+        "studentTask": { "type": "string" },
+        "guidingQuestions": { "type": "string" },
+        "answerKey": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "isSampleData": { "type": "boolean" }
+      },
+      "required": ["id", "title", "stage", "durationMinutes", "createdAt", "updatedAt"]
+    },
+    "MaterialItem": {
+      "title": "MaterialItem",
+      "description": "Reference link or uploaded file metadata owned by Alden Path.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "type": { "type": "string", "enum": ["link", "file"] },
+        "category": { "type": "string" },
+        "url": { "type": "string" },
+        "fileName": { "type": "string" },
+        "mimeType": { "type": "string" },
+        "fileSize": { "type": "number" },
+        "uploadId": { "type": "string" },
+        "textReadable": { "type": "boolean" },
+        "readabilityNote": { "type": "string" },
+        "extractedTextPreview": { "type": "string" },
+        "linkedLessonIds": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "isSampleData": { "type": "boolean" }
+      },
+      "required": ["id", "title", "type", "category", "textReadable", "createdAt"]
+    },
+    "CurriculumTemplate": {
+      "title": "CurriculumTemplate",
+      "description": "Reusable curriculum template owned by Alden Path.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "titleEn": { "type": "string" },
+        "description": { "type": "string" },
+        "targetAudience": { "type": "string" },
+        "entryLevel": { "type": "string" },
+        "exitGoal": { "type": "string" },
+        "estimatedSessions": { "type": "number" },
+        "estimatedHours": { "type": "number" },
+        "stages": { "type": "array", "items": { "type": "object" } },
+        "keyMaterialsSummary": { "type": "string" },
+        "keyActivitiesSummary": { "type": "string" },
+        "version": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "isSampleData": { "type": "boolean" }
+      },
+      "required": ["id", "title", "estimatedSessions", "stages", "version", "createdAt", "updatedAt"]
+    },
+    "StudentRoadmap": {
+      "title": "StudentRoadmap",
+      "description": "Personalized learning roadmap forked for a TutorFlow learner or group.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "learnerId": { "type": "string" },
+        "learnerType": { "type": "string", "enum": ["student", "group"] },
+        "learnerNameSnapshot": { "type": "string" },
+        "sourceTemplateId": { "type": "string" },
+        "sourceTemplateTitleSnapshot": { "type": "string" },
+        "sourceTemplateVersionSnapshot": { "type": "integer" },
+        "title": { "type": "string" },
+        "customGoals": { "type": "string" },
+        "entryLevel": { "type": "string" },
+        "targetGoal": { "type": "string" },
+        "estimatedSessions": { "type": "number" },
+        "stages": { "type": "array", "items": { "type": "object" } },
+        "teacherNotes": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "isSampleData": { "type": "boolean" }
+      },
+      "required": ["id", "learnerId", "learnerType", "title", "stages", "createdAt", "updatedAt"]
+    },
+    "SessionPlan": {
+      "title": "SessionPlan",
+      "description": "Session-specific teaching plan linked by stable TutorFlow session ID.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "tutorFlowSessionId": { "type": "string" },
+        "learnerId": { "type": "string" },
+        "roadmapId": { "type": "string" },
+        "roadmapItemId": { "type": "string" },
+        "sourceLessonTemplateId": { "type": "string" },
+        "sourceLessonVersionSnapshot": { "type": "integer" },
+        "title": { "type": "string" },
+        "objectives": { "type": "string" },
+        "preparationNotes": { "type": "string" },
+        "materialIds": { "type": "array", "items": { "type": "string" } },
+        "activities": { "type": "array", "items": { "type": "object" } },
+        "homeworkPlan": { "type": "string" },
+        "teacherNotes": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "isSampleData": { "type": "boolean" }
+      },
+      "required": ["id", "tutorFlowSessionId", "learnerId", "title", "activities", "createdAt", "updatedAt"]
+    },
+    "PostSessionLog": {
+      "title": "PostSessionLog",
+      "description": "Post-session progress tracking and teacher observations owned by Alden Path.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "tutorFlowSessionId": { "type": "string" },
+        "sessionPlanId": { "type": "string" },
+        "learnerId": { "type": "string" },
+        "activityOutcomes": { "type": "array", "items": { "type": "object" } },
+        "taughtSummary": { "type": "string" },
+        "actualDurationMinutes": { "type": "number" },
+        "missingContent": { "type": "string" },
+        "comprehensionLevel": { "type": "string", "enum": ["high", "moderate", "needs_support", "not_rated"] },
+        "strengths": { "type": "string" },
+        "weaknesses": { "type": "string" },
+        "commonErrors": { "type": "string" },
+        "homeworkAssigned": { "type": "string" },
+        "homeworkResult": { "type": "string" },
+        "freeformNotes": { "type": "string" },
+        "organizedNotesByAi": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "isSampleData": { "type": "boolean" }
+      },
+      "required": ["id", "tutorFlowSessionId", "learnerId", "activityOutcomes", "comprehensionLevel", "updatedAt"]
+    },
+    "AiSuggestionRecord": {
+      "title": "AiSuggestionRecord",
+      "description": "Saved AI draft suggestion or evaluation stored for teacher review.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string", "enum": ["lesson_evaluation", "curriculum_evaluation", "next_session", "progress_summary", "generated_lesson"] },
+        "title": { "type": "string" },
+        "learnerId": { "type": "string" },
+        "sessionId": { "type": "string" },
+        "lessonTemplateId": { "type": "string" },
+        "curriculumTemplateId": { "type": "string" },
+        "status": { "type": "string", "enum": ["draft", "accepted", "dismissed"] },
+        "content": { "type": "object" },
+        "modelUsed": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "isSampleData": { "type": "boolean" }
+      },
+      "required": ["id", "type", "title", "status", "content", "modelUsed", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/lessonTemplates/{lessonId}": {
+      "schema": { "$ref": "#/entities/LessonTemplate" },
+      "description": "Alden Path master lesson plans."
+    },
+    "/activityBank/{activityId}": {
+      "schema": { "$ref": "#/entities/ReusableActivity" },
+      "description": "Alden Path reusable teaching activity bank."
+    },
+    "/materials/{materialId}": {
+      "schema": { "$ref": "#/entities/MaterialItem" },
+      "description": "Alden Path links and file attachment metadata."
+    },
+    "/curriculumTemplates/{curriculumId}": {
+      "schema": { "$ref": "#/entities/CurriculumTemplate" },
+      "description": "Alden Path master curriculum templates."
+    },
+    "/studentRoadmaps/{roadmapId}": {
+      "schema": { "$ref": "#/entities/StudentRoadmap" },
+      "description": "Alden Path personalized student/group roadmaps."
+    },
+    "/sessionPlans/{planId}": {
+      "schema": { "$ref": "#/entities/SessionPlan" },
+      "description": "Alden Path per-session teaching plans linked by TutorFlow session ID."
+    },
+    "/postSessionLogs/{logId}": {
+      "schema": { "$ref": "#/entities/PostSessionLog" },
+      "description": "Alden Path post-session teaching progress logs."
+    },
+    "/aiSuggestions/{suggestionId}": {
+      "schema": { "$ref": "#/entities/AiSuggestionRecord" },
+      "description": "Alden Path saved AI draft suggestions and evaluations."
+    }
+  }
+}
