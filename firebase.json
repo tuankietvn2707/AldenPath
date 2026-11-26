@@ -1,0 +1,8 @@
+{
+  "firestore": {
+    "databaseId": "ai-studio-aldenpath-d81df218-4bfa-4fe0-ac96-b7ceafd185d8",
+    "rules": "firestore.rules",
+    "edition": "ENTERPRISE",
+    "dataAccessMode": "FIRESTORE_NATIVE"
+  }
+}
