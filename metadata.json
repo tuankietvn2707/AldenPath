@@ -1,8 +1,0 @@
-{
-  "name": "Alden Path",
-  "description": "Không gian quản lý giáo án, lộ trình học cá nhân hóa và theo dõi tiến độ giảng dạy tiếng Anh tích hợp AI, thuộc hệ sinh thái Ken's TutorFlow.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}

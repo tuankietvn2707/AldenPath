@@ -1,0 +1,10 @@
+{
+  "indexes": [],
+  "fieldOverrides": [
+    {
+      "collectionGroup": "aldenRecords",
+      "fieldPath": "data",
+      "indexes": []
+    }
+  ]
+}
