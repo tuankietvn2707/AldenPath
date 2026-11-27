@@ -10,12 +10,12 @@ test('Teacher workspace, independent snapshots, read-only adapter, reviews, file
   const api=(url,method='GET',data)=>worker.fetch(new Request('https://local.example'+url,{method,...(data?{body:data instanceof FormData?data:JSON.stringify(data)}:{})}),env);
   const state=async()=>(await api('/api/workspace')).json();
   const put=(kind,id,data,version=0)=>api('/api/records/'+kind+'/'+id,'PUT',{data,version});
-  const initial=await state();assert.equal(initial.records.length,0);assert.equal(initial.people.length,3);
+  const initial=await state();assert.equal(initial.records.length,0);assert.equal(initial.people.length,0);assert.equal(initial.sessions.length,0);
   const d={title:'Shopping',activities:[{id:'warm',title:'Warm-up'},{id:'role',title:'Role-play'}]};
   assert.equal((await put('lesson','one',d)).status,200);
   const t={title:'Giao tiếp',steps:[{lesson:d,stage:'Shopping'}]};await put('template','source',t);
   const copy=structuredClone(t);copy.title='Riêng';copy.steps[0].lesson.title='Mua sắm';await put('path','personal',copy);
-  const id=initial.sessions[0].id;await put('plan',id,d);await put('review',id,{title:'Kết quả',items:[{id:'warm',status:'done'},{id:'role',status:'todo'}]});
+  const id='session-1';await put('plan',id,d);await put('review',id,{title:'Kết quả',items:[{id:'warm',status:'done'},{id:'role',status:'todo'}]});
   const rows=(await state()).records;assert.equal(rows.find(r=>r.kind==='template').data.steps[0].lesson.title,'Shopping');assert.equal(rows.find(r=>r.kind==='path').data.steps[0].lesson.title,'Mua sắm');assert.equal(rows.find(r=>r.kind==='review').data.items[1].status,'todo');
   assert.equal((await put('lesson','one',{title:'stale'})).status,409);
   for(const k of ['sessions','people','groups'])assert.equal((await put(k,'one',{title:'x'})).status,405);

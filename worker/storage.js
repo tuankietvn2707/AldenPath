@@ -1,5 +1,28 @@
-// All records belong to one shared Alden workspace. No visitor-specific data paths.
-function d1Records(env) {
+// Records are isolated per authenticated user (ownerId) when signed in.
+function d1Records(env, ownerId = null) {
+  if (ownerId) {
+    return {
+      async list() {
+        const { results } = await env.DB.prepare("SELECT kind,id,data,version,updated FROM user_records WHERE owner_id=? ORDER BY updated DESC").bind(ownerId).all();
+        return results.map(row => ({ ...row, data: JSON.parse(row.data) }));
+      },
+      async get(kind, id) {
+        const row = await env.DB.prepare("SELECT kind,id,data,version,updated FROM user_records WHERE owner_id=? AND kind=? AND id=?").bind(ownerId, kind, id).first();
+        return row ? { ...row, data: JSON.parse(row.data) } : null;
+      },
+      async put(kind, id, data, version, updated) {
+        const raw = JSON.stringify(data);
+        const result = version === 0
+          ? await env.DB.prepare("INSERT INTO user_records(owner_id,kind,id,data,version,updated) VALUES(?,?,?,?,1,?) ON CONFLICT DO NOTHING").bind(ownerId,kind,id,raw,updated).run()
+          : await env.DB.prepare("UPDATE user_records SET data=?, version=version+1, updated=? WHERE owner_id=? AND kind=? AND id=? AND version=?").bind(raw,updated,ownerId,kind,id,version).run();
+        return !!result.meta.changes;
+      },
+      async remove(kind,id,version) {
+        const result = await env.DB.prepare("DELETE FROM user_records WHERE owner_id=? AND kind=? AND id=? AND version=?").bind(ownerId,kind,id,version).run();
+        return !!result.meta.changes;
+      }
+    };
+  }
   return {
     async list() {
       const { results } = await env.DB.prepare("SELECT kind,id,data,version,updated FROM records ORDER BY updated DESC").all();
@@ -48,11 +71,13 @@ async function firebaseToken(env) {
   tokenCache.set(id,{key:account.private_key,token:data.access_token,expires:Date.now()+data.expires_in*1000});
   return data.access_token;
 }
-function firestoreRecords(env) {
+function firestoreRecords(env, ownerId = null) {
   const {id} = firebaseConfig(env);
-  const base = "https://firestore.googleapis.com/v1/projects/"+id+"/databases/(default)/documents";
+  const dbId = env.FIREBASE_ALDEN_DATABASE_ID || "(default)";
+  const base = "https://firestore.googleapis.com/v1/projects/"+id+"/databases/"+encodeURIComponent(dbId)+"/documents";
+  const col = ownerId ? "users/"+encodeURIComponent(ownerId)+"/records" : "aldenRecords";
   const key = (kind,id) => kind+"__"+id;
-  const name = (kind,id) => "projects/"+env.FIREBASE_ALDEN_PROJECT_ID+"/databases/(default)/documents/aldenRecords/"+key(kind,id);
+  const name = (kind,id) => "projects/"+env.FIREBASE_ALDEN_PROJECT_ID+"/databases/"+dbId+"/documents/"+col+"/"+key(kind,id);
   async function call(path,options={}) {
     const token = await firebaseToken(env);
     const res = await fetch(base+path,{...options,headers:{"Content-Type":"application/json",Authorization:"Bearer "+token},signal:AbortSignal.timeout(20000)});
@@ -66,7 +91,7 @@ function firestoreRecords(env) {
     return {kind:f.kind.stringValue,id:f.id.stringValue,data:JSON.parse(f.data.stringValue),version:Number(f.version.integerValue),updated:f.updated.stringValue,updateTime:doc.updateTime};
   }
   async function get(kind,id) {
-    const doc=await call("/aldenRecords/"+key(kind,id));
+    const doc=await call("/"+col+"/"+key(kind,id));
     return doc?decode(doc):null;
   }
   async function commit(write) {
@@ -77,7 +102,7 @@ function firestoreRecords(env) {
     async list() {
       const records=[];let pageToken="";
       do {
-        const out=await call("/aldenRecords?pageSize=300"+(pageToken?"&pageToken="+encodeURIComponent(pageToken):""));
+        const out=await call("/"+col+"?pageSize=300"+(pageToken?"&pageToken="+encodeURIComponent(pageToken):""));
         for(const doc of out?.documents||[])records.push(decode(doc));
         pageToken=out?.nextPageToken||"";
       }while(pageToken);
@@ -103,9 +128,55 @@ function firestoreRecords(env) {
     }
   };
 }
-function recordStore(env) {
+function recordStore(env, ownerId = null) {
   if(env.DATA_BACKEND && !["d1","firestore"].includes(env.DATA_BACKEND))throw Error("Unknown data backend");
-  return env.DATA_BACKEND==="firestore"?firestoreRecords(env):d1Records(env);
+  return env.DATA_BACKEND==="firestore"?firestoreRecords(env, ownerId):d1Records(env, ownerId);
+}
+const certCache = { certs: null, expires: 0 };
+function readTlv(buf, pos) {
+  const tag = buf[pos++];
+  let len = buf[pos++];
+  if (len & 0x80) { const n = len & 0x7f; len = 0; for (let i = 0; i < n; i++) len = (len << 8) | buf[pos++]; }
+  return { tag, content: pos, next: pos + len };
+}
+function extractSpkiFromPem(pem) {
+  const raw = atob(pem.replace(/-----[^-]+-----|\s/g, ""));
+  const der = Uint8Array.from(raw, c => c.charCodeAt(0));
+  const cert = readTlv(der, 0);
+  const tbs = readTlv(der, cert.content);
+  let cur = tbs.content;
+  if (der[cur] === 0xa0) cur = readTlv(der, cur).next;
+  for (let i = 0; i < 5; i++) cur = readTlv(der, cur).next;
+  const spkiEnd = readTlv(der, cur).next;
+  return der.slice(cur, spkiEnd);
+}
+async function getFirebasePublicCerts() {
+  if (certCache.certs && certCache.expires > Date.now()) return certCache.certs;
+  const res = await fetch("https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com", { signal: AbortSignal.timeout(15000) });
+  if (!res.ok) throw Error("Cannot load Firebase Auth certificates");
+  const cc = res.headers.get("cache-control") || "";
+  const m = /max-age=(\d+)/i.exec(cc);
+  certCache.certs = await res.json();
+  certCache.expires = Date.now() + (m ? Number(m[1]) * 1000 : 3600000);
+  return certCache.certs;
+}
+async function verifyFirebaseIdToken(token, projectId) {
+  if (!projectId) throw Error("Firebase project is not configured");
+  const parts = String(token || "").split(".");
+  if (parts.length !== 3) throw Error("Invalid token");
+  const b64d = s => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/") + "=".repeat((4 - s.length % 4) % 4)), c => c.charCodeAt(0));
+  const dec = s => JSON.parse(new TextDecoder().decode(b64d(s)));
+  const header = dec(parts[0]), payload = dec(parts[1]), now = Math.floor(Date.now() / 1000);
+  if (header.alg !== "RS256" || !header.kid) throw Error("Unsupported token algorithm");
+  if (payload.aud !== projectId || payload.iss !== "https://securetoken.google.com/" + projectId) throw Error("Token project mismatch");
+  if (!payload.sub || !/^[a-zA-Z0-9_-]{1,128}$/.test(payload.sub) || payload.exp <= now || payload.iat > now + 300) throw Error("Token expired or invalid");
+  const certs = await getFirebasePublicCerts();
+  const pem = certs[header.kid];
+  if (!pem) throw Error("Unknown signing key");
+  const key = await crypto.subtle.importKey("spki", extractSpkiFromPem(pem), { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" }, false, ["verify"]);
+  const ok = await crypto.subtle.verify("RSASSA-PKCS1-v1_5", key, b64d(parts[2]), new TextEncoder().encode(parts[0] + "." + parts[1]));
+  if (!ok) throw Error("Invalid token signature");
+  return { uid: payload.sub, email: payload.email || "", name: payload.name || "", picture: payload.picture || "" };
 }
 function storageStatus(env) {
   return {backend:env.DATA_BACKEND==="firestore"?"firestore":"d1",firebaseConfigured:!!env.FIREBASE_ALDEN_PROJECT_ID&&!!env.FIREBASE_SERVICE_ACCOUNT_JSON,projectId:env.FIREBASE_ALDEN_PROJECT_ID||null,files:"r2",migrationLocked:env.DATA_MIGRATION_LOCK==="true"};

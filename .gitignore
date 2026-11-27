@@ -5,3 +5,4 @@ site.tar.gz
 !.env.example
 .dev.vars*
 outputs/
+.alden-data/
